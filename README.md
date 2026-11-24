@@ -1,4 +1,4 @@
-# mctdhf-gate-simulations
+# Gate simulations using multi-species MCTDHF
 
 Simulation scripts and data for
 
