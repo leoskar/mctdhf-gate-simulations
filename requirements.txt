@@ -1,0 +1,16 @@
+# Dependencies of the simulation and figure scripts, on top of the base code.
+# Install the base code first (see README.md):
+#   pip install "multi-species-mctdhf @ git+https://github.com/leoskar/multi-species-mctdhf"
+# or, with both repositories side by side:
+#   pip install -e ../multi-species-mctdhf
+#
+# Tested with Python 3.12.1, jax 0.9.1, numpy 2.5.3, scipy 1.18.1,
+# opt-einsum 3.4.0, matplotlib 3.11.2, pint 0.25.3 and Py-BOBYQA 1.5.0.
+# For a GPU, install "jax[cuda12]" instead of jax.
+jax>=0.4
+numpy>=1.24
+scipy>=1.10
+opt-einsum>=3.3
+matplotlib>=3.5
+pint>=0.20
+Py-BOBYQA>=1.4

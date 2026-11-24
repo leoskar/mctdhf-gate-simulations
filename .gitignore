@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.cache/
+logs/
+
+# created empty by some lib modules at import
+one_electron/lib/results/
+
+# figure and TikZ outputs (written next to the sources)
+figures/*.pdf
+figures/*.png
+figures/*_numbers.md
+paper_figures/*.pdf
+paper_figures/*.aux
+paper_figures/*.log

@@ -1,0 +1,16 @@
+{
+ "norb": 6,
+ "status": "ok",
+ "retention_vs_gate_worst": 1.0381726464614438e-07,
+ "n_checked": 19,
+ "retention_at_9p4": [
+  2.9496673528612025e-08,
+  1.954316626403185e-09,
+  1.716661919894659e-08,
+  1.1364811414790909e-09
+ ],
+ "passed": true,
+ "tol_at_run": 1e-08,
+ "tol": 0.0001,
+ "note": "checked at run time against 1e-8; re-evaluated against TOL_RET = 1e-4 (user decision 2026-11-05)"
+}

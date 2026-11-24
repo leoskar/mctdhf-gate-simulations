@@ -1,0 +1,80 @@
+[
+ {
+  "label": "n24 embedded vs mixed",
+  "worst": 1.2509268882771005e-17,
+  "tol": 1e-12,
+  "species": {
+   "w0": {
+    "D": 2024,
+    "n_pairs": 1000,
+    "max_err": 1.2509268882771005e-17,
+    "max_abs_minor": 0.021439063764568913,
+    "median_abs_minor": 0.002311266077487081,
+    "O_dist_from_identity": 0.8911474746943958
+   },
+   "w1": {
+    "D": 2024,
+    "n_pairs": 1000,
+    "max_err": 9.889445383256551e-18,
+    "max_abs_minor": 0.020204625855395772,
+    "median_abs_minor": 0.0024500303479748405,
+    "O_dist_from_identity": 0.8896309304854972
+   },
+   "w2": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 1.0971354589302191e-17,
+    "max_abs_minor": 0.03435215087495187,
+    "median_abs_minor": 0.03435215087495187,
+    "O_dist_from_identity": 0.7221804223300038
+   },
+   "w3": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 0.0,
+    "max_abs_minor": 0.012474227238820652,
+    "median_abs_minor": 0.012474227238820652,
+    "O_dist_from_identity": 0.9120160281821897
+   }
+  }
+ },
+ {
+  "label": "n24 embedded vs relaxed",
+  "worst": 2.220446049250313e-16,
+  "tol": 1e-12,
+  "species": {
+   "w0": {
+    "D": 2024,
+    "n_pairs": 1000,
+    "max_err": 2.7755575615628914e-17,
+    "max_abs_minor": 0.06041275529813027,
+    "median_abs_minor": 1.3424768743129024e-08,
+    "O_dist_from_identity": 0.9986341077787407
+   },
+   "w1": {
+    "D": 2024,
+    "n_pairs": 1000,
+    "max_err": 3.122502256758253e-17,
+    "max_abs_minor": 0.999586121420196,
+    "median_abs_minor": 8.525879688873635e-10,
+    "O_dist_from_identity": 0.9985964145166552
+   },
+   "w2": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 1.1102230246251565e-16,
+    "max_abs_minor": 0.9999999999999996,
+    "median_abs_minor": 0.9999999999999996,
+    "O_dist_from_identity": 3.3306690738754696e-16
+   },
+   "w3": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 2.220446049250313e-16,
+    "max_abs_minor": 1.0000000000000002,
+    "median_abs_minor": 1.0000000000000002,
+    "O_dist_from_identity": 2.220446049250313e-16
+   }
+  }
+ }
+]

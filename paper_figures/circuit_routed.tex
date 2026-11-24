@@ -1,0 +1,96 @@
+% Standalone source for the routed-gate circuit figure.
+%
+% Build:   pdflatex circuit_routed.tex      (from paper_figures/)
+% Include: \includegraphics{circuit_routed}     <-- NO width= option
+%
+% The output PDF is built at exactly 246.0pt wide, which is \columnwidth for
+% main.tex's class options (aip,reprint,jcp / revtex4-1).  Included at its
+% natural size it therefore fills the column exactly, and nothing can ever
+% rescale it.  Verified: TeX reads the natural width as 245.99942pt.
+%
+% Do NOT use \includegraphics[width=\columnwidth]{...} here.  It is scale 1.0
+% in the normal in-column case, but if the float ever gets deferred to a float
+% page, revtex typesets that page in one-column mode where \columnwidth is
+% \textwidth = 510pt -- and the figure silently comes out 2.07x too big, with
+% labels dwarfing the body text.  Omitting width= is immune to this.
+%
+% If you change the class options, re-check \the\columnwidth and update the
+% 246.0pt below, otherwise the figure stops matching the column.
+%
+% (pdfinfo reports 245.081pt because PDF uses big points, 72bp/in, whereas TeX
+% pt is 72.27/in: 246 * 72/72.27 = 245.081.  The page really is 246.0pt.)
+%
+% Font setup below mirrors main.tex (T1 + mathptmx, 10pt base, so \footnotesize
+% is 8pt in both).  Keep them in sync or the labels will not match the paper.
+%
+% The (a)/(b) panel labels are baked in here on purpose: that way main.tex does
+% NOT need the subcaption package.  subcaption pulls in caption, which does not
+% recognise revtex4-1 and silently re-formats every caption in the paper from
+% justified to centred.
+%
+% Layout constants (row sep, column sep, the \smash/\raisebox around the gate
+% label) are explained in circuits.tex -- change them there and copy across.
+
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{quantikz}
+
+\newcommand{\isw}{\raisebox{-0.5\height}[1.5pt][1.5pt]{\rotatebox{90}{\mbox{\footnotesize$\sqrt{i\text{SWAP}}$}}}}
+
+% Panel labels pinned to 9pt/10.5pt: that is revtex4-1's native caption font
+% (measured), so these match the \caption text of the figure they sit in.  Set
+% explicitly rather than via \small etc. so they cannot drift if the class or
+% its base size changes -- this file is compiled by `standalone`, whose
+% relative size commands need not agree with revtex's.
+%
+% Note this is deliberately NOT the same as the 8pt \footnotesize used for the
+% \sqrt{iSWAP} gate labels inside \isw above; do not "unify" them.  The gate
+% label size feeds the geometry documented in circuits.tex (its 30.15pt
+% rotated height sets the minimum row sep), so changing it breaks the layout.
+\newcommand{\panellabel}[1]{{\fontsize{9}{10.5}\selectfont #1}}
+
+\newsavebox{\seqbox}\newsavebox{\parcircbox}
+
+\begin{document}
+% Each circuit is typeset into a box first and its panel is made exactly that
+% wide.  Fixed-fraction panel widths let a circuit overflow its slot, and
+% standalone then crops whatever sticks out past 246pt (this silently cut the
+% last SWAP off the sequential circuit).  \hfill splits the leftover space.
+\begin{lrbox}{\seqbox}
+\begin{quantikz}[row sep={0.85cm,between origins}, column sep=0.3cm]
+\lstick{$q_0$} & \qw      & \qw      & \gate[wires=2]{\isw} & \qw      & \qw      & \qw \\
+\lstick{$q_1$} & \qw      & \swap{1} &                      & \swap{1} & \qw      & \qw \\
+\lstick{$q_2$} & \swap{1} & \targX{} & \qw                  & \targX{} & \swap{1} & \qw \\
+\lstick{$q_3$} & \targX{} & \qw      & \qw                  & \qw      & \targX{} & \qw
+\end{quantikz}
+\end{lrbox}%
+\begin{lrbox}{\parcircbox}
+\begin{quantikz}[row sep={0.85cm,between origins}, column sep=0.3cm]
+\lstick{$q_0$} & \swap{1} & \qw                  & \swap{1} & \qw \\
+\lstick{$q_1$} & \targX{} & \gate[wires=2]{\isw} & \targX{} & \qw \\
+\lstick{$q_2$} & \swap{1} &                      & \swap{1} & \qw \\
+\lstick{$q_3$} & \targX{} & \qw                  & \targX{} & \qw
+\end{quantikz}
+\end{lrbox}%
+\begin{minipage}{246.0pt}
+\begin{minipage}[b]{\wd\seqbox}
+\centering
+\usebox{\seqbox}
+
+\vspace{2ex}
+\panellabel{(a) Serial}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{\wd\parcircbox}
+\centering
+\usebox{\parcircbox}
+
+\vspace{2ex}
+\panellabel{(b) Parallel}
+\end{minipage}
+\end{minipage}
+\end{document}

@@ -1,0 +1,80 @@
+[
+ {
+  "label": "n26 embedded vs mixed",
+  "worst": 2.42861286636753e-17,
+  "tol": 1e-12,
+  "species": {
+   "w0": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 5.818439421673296e-18,
+    "max_abs_minor": 0.004045385130345738,
+    "median_abs_minor": 0.004045385130345738,
+    "O_dist_from_identity": 0.8320772591767891
+   },
+   "w1": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 2.42861286636753e-17,
+    "max_abs_minor": 0.02112719064754644,
+    "median_abs_minor": 0.0023048695857318174,
+    "O_dist_from_identity": 0.8629489670443871
+   },
+   "w2": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 1.734723475976807e-17,
+    "max_abs_minor": 0.021859850283784427,
+    "median_abs_minor": 0.002367998298377291,
+    "O_dist_from_identity": 0.8915197284604739
+   },
+   "w3": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 6.071532165918825e-18,
+    "max_abs_minor": 0.03468226930234411,
+    "median_abs_minor": 0.03468226930234411,
+    "O_dist_from_identity": 0.747662586835366
+   }
+  }
+ },
+ {
+  "label": "n26 embedded vs relaxed",
+  "worst": 8.082049569521632e-17,
+  "tol": 1e-12,
+  "species": {
+   "w0": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 0.0,
+    "max_abs_minor": 1.0000000000000004,
+    "median_abs_minor": 1.0000000000000004,
+    "O_dist_from_identity": 4.440892098500626e-16
+   },
+   "w1": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 8.082049569521632e-17,
+    "max_abs_minor": 0.12779871674009585,
+    "median_abs_minor": 4.2418653254208725e-09,
+    "O_dist_from_identity": 1.0117806403216103
+   },
+   "w2": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 1.1762323022046842e-17,
+    "max_abs_minor": 0.0008018227067098649,
+    "median_abs_minor": 4.2297364594443754e-10,
+    "O_dist_from_identity": 1.001360379445658
+   },
+   "w3": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 0.0,
+    "max_abs_minor": 0.9999999999999997,
+    "median_abs_minor": 0.9999999999999997,
+    "O_dist_from_identity": 3.3306690738754696e-16
+   }
+  }
+ }
+]

@@ -1,0 +1,11 @@
+{
+ "point": "three_electrons/orbital_convergence/results/holdscan/w1w2/diagonalize_mix1e-4_dt0.01_tol1e-10_rg0.1_s16o4_rnstep_act22s4/pt_tr9p4_th126p1.npz",
+ "F": 0.708271125401686,
+ "F_ref": 0.7082711332908566,
+ "dF": -7.889170539066015e-09,
+ "ret11": 0.2037280237920918,
+ "ret11_ref": 0.20372803650942398,
+ "dret11": -1.2717332187328623e-08,
+ "dtheta": -3.6057078656170916e-08,
+ "passed": true
+}

@@ -1,0 +1,98 @@
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{quantikz}
+
+\newcommand{\isw}{\raisebox{-0.5\height}[1.5pt][1.5pt]{\rotatebox{90}{\mbox{\footnotesize$\sqrt{i\text{SWAP}}$}}}}
+
+% Single-qubit gates are SQUARE, side \gsize, and the two-qubit box is given the
+% same width so all vertical edges line up.
+\newlength{\gsize}
+% Note: the trailing style argument is a MANDATORY brace group, not an
+% optional [ ] one -- quantikz's matrix parser misreads the lookahead from
+% an optional argument as a stray column/row break and stretches the gate
+% to fill the whole row.  Call as \gbox{}{S^\dagger} / \gbox{name=Ca}{S^\dagger}.
+%
+% The box itself is a SYMMETRIC strut (gsize/2 above and below the baseline),
+% giving every gate the same square footprint.  The label is measured with
+% \sbox and then \raisebox by half its own (ht-dp), which moves the LABEL's
+% own visual centre (not its baseline) onto the box's centre -- needed
+% because "S^\dagger" (tall ascender), "H" (no descender) and "U" (no
+% descender either, but a different cap height) all sit differently
+% relative to their baseline, so a single fixed strut split can't centre
+% all of them at once the way this per-label raise does.
+\newsavebox{\glyphbox}
+\newcommand{\centred}[1]{%
+  \sbox{\glyphbox}{#1}%
+  \raisebox{-0.5\dimexpr\ht\glyphbox-\dp\glyphbox\relax}{\usebox{\glyphbox}}}
+\newcommand{\gbox}[2]{%
+  \gate[style={minimum width=\gsize, inner sep=0pt, #1}]%
+       {\makebox[\gsize][c]{\rule[-0.5\gsize]{0pt}{\gsize}\centred{\footnotesize\ensuremath{#2}}}}}
+\newcommand{\iswbox}[1]{%
+  \gate[wires=2, style={minimum width=\gsize, inner sep=0pt, #1}]%
+       {\makebox[\gsize][c]{\rule[-0.5\gsize]{0pt}{\gsize}\isw}}}
+% Plain two-qubit box labelled U, same square-grid convention as \gbox/\iswbox.
+\newcommand{\ubox}[1]{%
+  \gate[wires=2, style={minimum width=\gsize, inner sep=0pt, #1}]%
+       {\makebox[\gsize][c]{\rule[-0.5\gsize]{0pt}{\gsize}\centred{\footnotesize$U$}}}}
+
+% Small centred caption line set below each row.  Edit the wording to taste.
+% Pinned to 9pt/10.5pt to match revtex4-1's native caption font, same as
+% \panellabel in circuit_routed.tex -- see that file for why this is set
+% explicitly rather than via \footnotesize (which is 8pt here, not 9pt).
+\newcommand{\panellabel}[1]{{\fontsize{9}{10.5}\selectfont #1}}
+
+\begin{document}
+\begin{minipage}{246.0pt}
+\centering
+% 3.2mm is too small: S^\dagger's ascender (~6.96pt) pokes past the strut's
+% height share (0.66*gsize) at that size, so its box silently grows taller
+% than H's. 3.8mm gives 0.66*3.8mm=7.16pt, just enough headroom.
+\setlength{\gsize}{3.8mm}%
+
+% Row gaps below are explicit pt values, not \baselineskip multiples: array/
+% tabular locally zeroes \baselineskip while building rows, so a \\[N\baselineskip]
+% here silently adds no space at all.
+%
+% A 3-column table (symbol / "=" / circuit), all columns centred, so that
+% -- column 1 centres SWAP over U,
+% -- column 2 centres the two "=" signs on each other,
+% -- column 3 centres the U-U-U row over the sqrt(iSWAP) block.
+% Captions are inserted as \multicolumn rows spanning the whole table.
+\begin{tabular}{@{}c@{\quad}c@{\quad}c@{}}
+$\vcenter{\hbox{%
+\begin{quantikz}[row sep={0.82cm,between origins}, column sep=0.18cm]
+\qw & \qw & \swap{1} & \qw &  \qw \\
+\qw & \qw & \targX{}  & \qw &  \qw
+\end{quantikz}}}$
+&
+$=$
+&
+$\vcenter{\hbox{%
+\begin{quantikz}[row sep={0.82cm,between origins}, column sep=0.18cm]
+\qw & \ubox{} & \ubox{} & \ubox{} & \qw \\
+\qw &         &         &         & \qw
+\end{quantikz}}}$ \\[3pt]
+\multicolumn{3}{c}{\panellabel{(a) SWAP as three applications of $U$}} \\[10pt]
+$\vcenter{\hbox{%
+\begin{quantikz}[row sep={0.82cm,between origins}, column sep=0.18cm]
+\qw & \ubox{} & \qw \\
+\qw &         & \qw
+\end{quantikz}}}$
+&
+$=$
+&
+$\vcenter{\hbox{%
+\begin{quantikz}[row sep={0.82cm,between origins}, column sep=0.18cm]
+\qw & \gbox{}{S^{\dagger}} & \gbox{}{H} & \iswbox{} & \qw \\
+\qw & \gbox{}{S^{\dagger}} & \gbox{}{H} &           & \qw
+\end{quantikz}}}$ \\[3pt]
+\multicolumn{3}{c}{\panellabel{\text{(b)} $U$ in terms of native gates}}
+\end{tabular}
+
+\end{minipage}
+\end{document}

@@ -1,0 +1,80 @@
+[
+ {
+  "label": "n26 embedded vs mixed",
+  "worst": 1.2396466290156952e-17,
+  "tol": 1e-12,
+  "species": {
+   "w0": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 2.2113472136733112e-18,
+    "max_abs_minor": 0.004045303694483495,
+    "median_abs_minor": 0.004045303694483495,
+    "O_dist_from_identity": 0.8320773583957968
+   },
+   "w1": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 2.6020852139652106e-18,
+    "max_abs_minor": 0.028005513843866233,
+    "median_abs_minor": 0.028005513843866233,
+    "O_dist_from_identity": 0.837519369944578
+   },
+   "w2": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 6.992893892674703e-18,
+    "max_abs_minor": 0.015219983648397741,
+    "median_abs_minor": 0.00247084982935291,
+    "O_dist_from_identity": 0.9627707402673584
+   },
+   "w3": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 1.2396466290156952e-17,
+    "max_abs_minor": 0.042055675912603674,
+    "median_abs_minor": 0.002476258857169469,
+    "O_dist_from_identity": 1.0325657262671992
+   }
+  }
+ },
+ {
+  "label": "n26 embedded vs relaxed",
+  "worst": 2.220446049250313e-16,
+  "tol": 1e-12,
+  "species": {
+   "w0": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 2.220446049250313e-16,
+    "max_abs_minor": 1.0000000000000002,
+    "median_abs_minor": 1.0000000000000002,
+    "O_dist_from_identity": 2.220446049250313e-16
+   },
+   "w1": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 1.1102230246251565e-16,
+    "max_abs_minor": 0.9999999999999997,
+    "median_abs_minor": 0.9999999999999997,
+    "O_dist_from_identity": 2.220446049250313e-16
+   },
+   "w2": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 2.6401169932969287e-17,
+    "max_abs_minor": 0.00965588410862424,
+    "median_abs_minor": 6.582149872969308e-10,
+    "O_dist_from_identity": 1.0015671760942906
+   },
+   "w3": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 2.3310346708438345e-17,
+    "max_abs_minor": 0.0026711368024403322,
+    "median_abs_minor": 4.290768902004683e-12,
+    "O_dist_from_identity": 1.0186787514058977
+   }
+  }
+ }
+]

@@ -1,0 +1,16 @@
+{
+ "ref": "g4_w1w2_n22_s16o4",
+ "arm": "g4_w1w2_n22_s16o4_rnnone",
+ "gate_infid": 1.7474706798248363e-06,
+ "dcond": 2.659095558497568e-05,
+ "infid_phase_blind": 1.24332443929287e-06,
+ "norm_drift_arm": 0.001542303452723992,
+ "norm_drift_ref": 1.5216716775512396e-12,
+ "ms_arm": 506.4673107036267,
+ "ms_ref": 520.8027956095268,
+ "status": [
+  "ok",
+  "ok"
+ ],
+ "passed": true
+}

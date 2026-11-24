@@ -1,0 +1,41 @@
+[
+ {
+  "label": "n26 relaxed vs mixed",
+  "worst": 2.3273757686693185e-17,
+  "tol": 1e-12,
+  "species": {
+   "w0": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 2.3273757686693185e-17,
+    "max_abs_minor": 0.029564461344948084,
+    "median_abs_minor": 0.002279358085158391,
+    "O_dist_from_identity": 0.9555664390436347
+   },
+   "w1": {
+    "D": 2600,
+    "n_pairs": 1000,
+    "max_err": 1.49226555887273e-17,
+    "max_abs_minor": 0.03317249574263076,
+    "median_abs_minor": 0.0022953425126843877,
+    "O_dist_from_identity": 0.910719433470879
+   },
+   "w2": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 5.780498387344537e-18,
+    "max_abs_minor": 0.0061084141382568066,
+    "median_abs_minor": 0.0061084141382568066,
+    "O_dist_from_identity": 0.853313033709512
+   },
+   "w3": {
+    "D": 1,
+    "n_pairs": 1,
+    "max_err": 7.152448122690996e-18,
+    "max_abs_minor": 0.03468226585535993,
+    "median_abs_minor": 0.03468226585535993,
+    "O_dist_from_identity": 0.7476625173750046
+   }
+  }
+ }
+]
